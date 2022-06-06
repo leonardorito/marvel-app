@@ -1,6 +1,6 @@
 const { getCreatorsByType } = require("./creators");
 
-const heroMapping = (data, id) => {
+const heroMapping = (data, id, name) => {
     const editors = getCreatorsByType("editor", data);
     const writers = getCreatorsByType("writer", data);
     const colorists = getCreatorsByType("colorist", data);
@@ -20,6 +20,7 @@ const heroMapping = (data, id) => {
     })
     return {
         heroId: id,
+        name,
         lastSync: new Date(),
         editors,
         writers,

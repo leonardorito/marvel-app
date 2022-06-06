@@ -7,7 +7,7 @@ const { getHash } = require('../utils/md5-hash');
 
 const date = new Date();
 
-const heroesJob = async (id) => {
+const heroesJob = async (id, name) => {
     schedule.scheduleJob('0 0 * * *', async () => {
         try {
             console.log('running cron')
@@ -15,7 +15,7 @@ const heroesJob = async (id) => {
                 url: `http://gateway.marvel.com/v1/public/characters/${id}/comics?apikey=${process.env.MARVEL_API_PUBLIC}&ts=${date}&hash=${getHash(date)}`,
                 method: "get",
             })
-            const heroesMapped = heroMapping(heroes.data.data.results, id)
+            const heroesMapped = heroMapping(heroes.data.data.results, id, name)
             await Hero.findOneAndUpdate(
                 { heroId: id },
                 heroesMapped,

@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3001
 const mongoose = require('mongoose')
 const { heroesId } = require('./constants/heroesId')
+const cors = require('cors')
 const { heroesJob } = require('./jobs/heroJob')
+
+app.use(cors())
 
 require('dotenv').config()
 
@@ -17,8 +20,8 @@ db.once("open", function () {
   console.log("Connected successfully")
 })
 
-heroesJob(heroesId.capamerica);
-heroesJob(heroesId.ironman);
+heroesJob(heroesId.capamerica, "Captain America");
+heroesJob(heroesId.ironman, "Iron Man");
 
 app.listen(port, () =>{
     console.log(`Example app listening on port ${port}!`)}

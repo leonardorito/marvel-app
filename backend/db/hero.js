@@ -5,18 +5,20 @@ const heroesGetDb = async () => {
   return heroes
 }
 
-const heroesCollaboratorsGetDb = async () => {
-  const heroes = await Hero.find({}).select({
+const heroesCollaboratorsGetDb = async (id) => {
+  const heroes = await Hero.findOne({heroId: id}).select({
     editors: 1,
     writers: 1,
     colorists: 1,
+    name: 1,
   })
   return heroes
 }
 
-const heroesCharactersGetDb = async () => {
-  const heroes = await Hero.find({}).select({
-    characters: 1
+const heroesCharactersGetDb = async (id) => {
+  const heroes = await Hero.findOne({heroId: id}).select({
+    characters: 1,
+    name: 1,
   })
   return heroes
 }

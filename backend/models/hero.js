@@ -9,6 +9,7 @@ const CharacterSchema = new mongoose.Schema({
 
 const HeroSchema = new mongoose.Schema({
   lastSync: Date,
+  name: String,
   heroId: {
     type: String,
   },
