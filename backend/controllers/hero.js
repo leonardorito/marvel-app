@@ -6,7 +6,6 @@ const { getCreatorsByType } = require("../utils/creators");
 
 const getHeroCollaborators = async (req, res, next) => {
     try {
-        console.log(req.params)
         const heroes = await getHeroCollaboratorsService()
         res.json(heroes);
     } catch (e) {
@@ -17,7 +16,6 @@ const getHeroCollaborators = async (req, res, next) => {
 
 const getHeroCharacters = async (req, res, next) => {
     try {
-        console.log(req.params)
         const heroes = await getHeroCharactersService()
         res.json(heroes);
     } catch (e) {
