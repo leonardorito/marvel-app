@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@1.22.11",
   "dependencies": {
     "axios": "^0.27.2",
     "cors": "^2.8.5",
