@@ -3,6 +3,7 @@ import { Card, Col, Divider, Row } from 'antd';
 import httpService from '../http/httpService';
 import MainLayout from '../layout/MainLayout'
 import { Typography } from 'antd';
+import { DateTime } from 'luxon';
 
 const { Text, Title } = Typography;
 
@@ -26,6 +27,8 @@ const Characters = () => {
                 {characters.map(char => (
                     <Col span={8}>
                         <Card title={char.name}>
+                            <Text>Last sync: {DateTime.fromISO(char.lastSync).toLocaleString(DateTime.DATETIME_MED)}</Text>
+                            <Divider />
                             {char.characters.map(sidekick => (
                                 <>
                                     <Text>{sidekick.character}: {sidekick.comics.map((comic, index) => (

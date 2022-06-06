@@ -11,6 +11,7 @@ const heroesCollaboratorsGetDb = async (id) => {
     writers: 1,
     colorists: 1,
     name: 1,
+    lastSync: 1,
   })
   return heroes
 }
@@ -19,6 +20,7 @@ const heroesCharactersGetDb = async (id) => {
   const heroes = await Hero.findOne({heroId: id}).select({
     characters: 1,
     name: 1,
+    lastSync: 1,
   })
   return heroes
 }

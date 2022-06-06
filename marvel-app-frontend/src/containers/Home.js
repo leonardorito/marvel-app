@@ -1,6 +1,7 @@
-import { Card, Col, Row } from 'antd';
+import { Card, Col, Divider, Row } from 'antd';
 import React, { useEffect, useState } from 'react'
 import httpService from '../http/httpService';
+import { DateTime } from "luxon";
 import MainLayout from '../layout/MainLayout'
 import { Typography } from 'antd';
 
@@ -25,7 +26,9 @@ const Home = () => {
             <Row gutter={30}>
                 {collaborators.map(collab => (
                     <Col span={8}>
-                        <Card title={collab.name}>
+                        <Card title={collab.name} >
+                            <Text>Last sync: {DateTime.fromISO(collab.lastSync).toLocaleString(DateTime.DATETIME_MED)}</Text>
+                            <Divider />
                             <Title level={3}>Editors</Title>
                             {collab.editors.map((item, index) => (
                                 <Text>{item}{index === collab.editors.length - 1 ? '' : ', '}</Text>

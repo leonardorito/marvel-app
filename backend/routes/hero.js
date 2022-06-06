@@ -1,4 +1,4 @@
-const { getHeroCollaborators, getHeroesFromMarvel, getHeroCharacters } = require('../controllers/hero')
+const { getHeroCollaborators, getHeroCharacters } = require('../controllers/hero')
 
 const express = require("express");
 
@@ -11,9 +11,5 @@ router
 router
     .route("/characters/:name")
     .get((req, res) => getHeroCharacters(req, res))
-
-router
-    .route('/heroes-from-api')
-    .get((req, res) => getHeroesFromMarvel(req, res))
 
 module.exports = router;
